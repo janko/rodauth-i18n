@@ -5,7 +5,7 @@ class Rodauth
     auth_value_method :i18n_options, {}
 
     def translate(key, default)
-      ::I18n.translate("rodauth.#{key}", i18n_options)
+      ::I18n.translate("rodauth.#{key}", **i18n_options)
     end
   end
 end
