@@ -1,0 +1,7 @@
+hr:
+  rodauth:
+    create_account_notice_flash: Vaš korisnički račun je stvoren
+    login_label: Email adresa
+    password_label: Lozinka
+    create_account_button: Stvori račun
+    create_account_page_title: Registracija
