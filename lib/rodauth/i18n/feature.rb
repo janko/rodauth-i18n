@@ -7,7 +7,7 @@ module Rodauth
 
     auth_value_method :i18n_cascade?, true
     auth_value_method :i18n_raise_on_missing_translations?, false
-    auth_value_method :i18n_fallback?, false
+    auth_value_method :i18n_fallback_to_untranslated?, false
     auth_value_method :i18n_options, {}
 
     auth_value_methods(
@@ -43,10 +43,10 @@ module Rodauth
       [*i18n_namespace, name].join(".")
     end
 
-    def i18n_default(name, default)
+    def i18n_default(name, fallback)
       default = []
       default << name if i18n_namespace && i18n_cascade?
-      default << default if i18n_fallback? && !i18n_raise_on_missing_translations?
+      default << fallback if i18n_fallback_to_untranslated? && !i18n_raise_on_missing_translations?
       default
     end
 

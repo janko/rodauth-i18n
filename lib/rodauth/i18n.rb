@@ -6,16 +6,24 @@ require "rodauth/i18n/railtie" if defined?(Rails)
 module Rodauth
   module I18n
     def self.add(locales = nil)
+      ::I18n.load_path.concat files(locales)
+    end
+
+    def self.files(locales = nil)
+      directory_pattern = "{#{directories.join(",")}}"
+
       if ::I18n.available_locales_initialized?
         locales ||= ::I18n.available_locales
-        pattern = "{#{locales.join(",")}}"
+        file_pattern = "{#{locales.join(",")}}"
       else
-        pattern = "*"
+        file_pattern = "*"
       end
 
-      files = Dir["#{__dir__}/../../locales/#{pattern}.yml"]
+      Dir["#{directory_pattern}/#{file_pattern}.yml"]
+    end
 
-      ::I18n.load_path.concat files
+    def self.directories
+      @directories ||= [File.expand_path("#{__dir__}/../../locales")]
     end
   end
 end

@@ -10,6 +10,7 @@ require "capybara/dsl"
 require "securerandom"
 require "rodauth/i18n"
 
+require "rodauth"
 require "sequel/core"
 require "roda"
 
@@ -39,13 +40,13 @@ class Minitest::HooksSpec
     @rodauth_block = block
   end
 
-  def roda(&block)
+  def roda(**options, &block)
     app = Class.new(Roda)
     app.plugin :sessions, secret: SecureRandom.hex(32), key: "rack.session"
     app.plugin :render, layout_opts: { path: "test/views/layout.str" }
 
     rodauth_block = @rodauth_block
-    app.plugin :rodauth do
+    app.plugin(:rodauth, **options) do
       instance_exec(&rodauth_block)
       account_password_hash_column :password_hash
       title_instance_variable :@page_title
@@ -53,6 +54,10 @@ class Minitest::HooksSpec
     app.route(&block)
 
     self.app = app
+  end
+
+  before do
+    I18n.reload!
   end
 
   around do |&block|
