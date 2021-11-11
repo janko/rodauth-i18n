@@ -14,7 +14,7 @@ require "rodauth"
 require "sequel/core"
 require "roda"
 
-DB = Sequel.sqlite
+DB = Sequel.connect("#{"jdbc:" if RUBY_ENGINE == "jruby"}sqlite::memory")
 
 DB.create_table :accounts do
   primary_key :id
