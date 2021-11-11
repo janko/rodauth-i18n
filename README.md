@@ -1,34 +1,132 @@
-# Rodauth::I18n
+# rodauth-i18n
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rodauth/i18n`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Provides [I18n] integration for [Rodauth] authentication framework. It also includes built-in translations, which you are welcome to extend.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rodauth-i18n'
+gem "rodauth-i18n"
 ```
 
 And then execute:
 
-    $ bundle install
+```sh
+$ bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install rodauth-i18n
+```sh
+$ gem install rodauth-i18n
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Enable the `i18n` feature in your Rodauth configuration:
+
+```rb
+plugin :rodauth do
+  enable :i18n
+  # ...
+end
+```
+
+If you're using Rails, the built-in translations will be automatically loaded based on your configured available locales. Otherwise, you need to manually add them to I18n's load path before translations have been loaded:
+
+```rb
+require "rodauth/i18n"
+
+# adds built-in locale files to I18n's load path
+Rodauth::I18n.add
+```
+
+See the [Rails Internationalization Guide] on how to set the locale.
+
+### Per configuration translations
+
+If you want to translate differently for different Rodauth configurations, you can define translations under the namespace matching the configuration name:
+
+```rb
+plugin :rodauth, name: :admin do
+  enable :i18n
+  # ...
+end
+```
+```yml
+en:
+  rodauth:
+    admin:
+      create_account_button: Create Admin Account
+```
+
+You can change the translation namespace via the `i18n_namespace` setting:
+
+```rb
+plugin :rodauth, name: :superadmin do
+  enable :i18n
+  i18n_namespace "admin"
+end
+```
+
+Any translations that are not found under the configuration namespace will fall back to top-level. If you want to disable this behaviour, you can do so via the `i18n_cascade?` setting:
+
+```rb
+i18n_cascade? false
+```
+
+### Copying translations
+
+In Rails, you can copy built-in translations into your app via the `rodauth:i18n:translations` generator, which receives a list of locales to copy translations for:
+
+```sh
+$ rails generate rodauth:i18n:translations en hr
+# create  config/locales/rodauth.en.yml
+# create  config/locales/rodauth.hr.yml
+```
+
+Alternatively, you can copy the translation files directly from the `locales/` directory.
+
+### Raising on missing translations
+
+You can tell I18n to raise an error when a translation is missing:
+
+```rb
+i18n_raise_on_missing_translations? { Rails.env.test? }
+```
+
+### Falling back to untranslated value
+
+In some cases it can be useful to fall back to untranslated value when the translation is missing:
+
+```rb
+i18n_fallback_to_untranslated? { Rails.env.production? }
+```
+
+### Overriding current locale
+
+The current locale defaults to `I18n.locale`, but you can override that:
+
+```rb
+i18n_locale :en
+```
+
+### Custom I18n options
+
+You can pass any custom options to the `I18n.translate` method via `i18n_options`:
+
+```rb
+i18n_options { { exception_handler: -> (*args) { ... } } }
+```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Run tests with Rake:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```sh
+$ bundle exec rake test
+```
 
 ## Contributing
 
@@ -40,4 +138,8 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Rodauth::I18n project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/janko/rodauth-i18n/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the rodauth-i18n project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/janko/rodauth-i18n/blob/master/CODE_OF_CONDUCT.md).
+
+[I18n]: https://github.com/ruby-i18n/i18n
+[Rodauth]: https://github.com/jeremyevans/rodauth
+[Rails Internationalization Guide]: https://guides.rubyonrails.org/i18n.html
