@@ -31,16 +31,16 @@ describe "login password requirements base translations" do
 
     visit "/create-account"
     fill_in "Email adresa", with: "a"
-    click_on "Stvori račun"
+    click_on "Stvori korisnički račun"
     assert_includes page.text, "neispravna email adresa, ne ispunjava uvjete (najmanje 3 znakova)"
 
     fill_in "Email adresa", with: "a" * 300
-    click_on "Stvori račun"
+    click_on "Stvori korisnički račun"
     assert_includes page.text, "neispravna email adresa, ne ispunjava uvjete (najviše 255 znakova)"
 
     fill_in "Email adresa", with: "user@example.com"
     fill_in "Lozinka", with: "s"
-    click_on "Stvori račun"
+    click_on "Stvori korisnički račun"
     assert_includes page.text, "neispravna lozinka, ne ispunjava uvjete (najmanje 6 znakova)"
   end
 end
