@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Janko Marohnić"]
   spec.email         = ["janko@hey.com"]
 
-  spec.summary       = "Provides translations for Rodauth authentication framework."
+  spec.summary       = "Provides I18n integration and translations for Rodauth authentication framework."
   spec.homepage      = "https://github.com/janko/rodauth-i18n"
   spec.license       = "MIT"
 
