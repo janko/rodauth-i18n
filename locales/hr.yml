@@ -1,6 +1,20 @@
 hr:
   rodauth:
-    create_account_button: Stvori račun
+    account_expiration_error_flash: Nije se moguće prijaviti u ovaj račun jer je istekao
+    active_sessions_error_flash: Ova sesija je bila odjavljena
+    add_recovery_codes_button: Dodaj rezervne autentikacijske kodove
+    add_recovery_codes_error_flash: Nije moguće dodati rezervne kodove
+    add_recovery_codes_heading: "<h2>Dodavanje novih rezervnih kodova</h2>"
+    add_recovery_codes_page_title: Rezervni autentikacijski kodovi
+    already_an_account_with_this_login_message: već postoji račun s ovom email adresom
+    attempt_to_create_unverified_account_error_flash: Račun koji ste pokušali stvoriti trenutno čeka na potvrdu
+    attempt_to_login_to_unverified_account_error_flash: Račun u kojeg ste se pokušali prijaviti trenutno čeka na potvrdu
+    change_login_button: Promijeni email adresu
+    change_login_error_flash: Bila je greška pri mijenjanju email adrese
+    change_login_needs_verification_notice_flash: Email vam je bio poslan s linkom na potvrdu promjene email adrese
+    change_login_notice_flash: Vaša email adresa je bila promijenjena
+    change_login_page_title: Promjena email adrese
+    create_account_button: Stvori korisnički račun
     create_account_notice_flash: Vaš korisnički račun je stvoren
     create_account_page_title: Registracija
     login_confirm_label: Potvrda email adrese
@@ -12,3 +26,4 @@ hr:
     password_does_not_meet_requirements_message: neispravna lozinka, ne ispunjava uvjete
     password_label: Lozinka
     password_too_short_message: najmanje %{password_minimum_length} znakova
+    # ...

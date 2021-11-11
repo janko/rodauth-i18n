@@ -1,8 +1,15 @@
 # frozen_string_literal: true
 
 require "bundler/gem_tasks"
+require "rake/testtask"
 require "rodauth"
 require "yaml"
+
+Rake::TestTask.new(:test) do |t|
+  t.libs << "test"
+  t.pattern = "test/**/*_test.rb"
+  t.warning = false
+end
 
 task :import do
   translations = {}

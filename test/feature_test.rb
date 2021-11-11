@@ -17,7 +17,7 @@ describe "i18n feature" do
     assert_equal "Registracija", page.title
     fill_in "Email adresa", with: "user@example.com"
     fill_in "Lozinka", with: "secret"
-    click_on "Stvori račun"
+    click_on "Stvori korisnički račun"
     assert_equal "Vaš korisnički račun je stvoren", find("#notice_flash").text
   end
 
