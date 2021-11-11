@@ -137,7 +137,7 @@ end
 ```rb
 route do |r|
   # ...
-  all_locales = I18n.available_locales.map(&:to_s)
+  all_locales = I18n.available_locales.map(&:to_s) - [I18n.default_locale.to_s]
   # routes requests starting with `(/:locale)/auth/*`
   r.on [*all_locales, true], "auth" do |locale|
     rails_request.params[:locale] = locale || I18n.default_locale # if using Rails
