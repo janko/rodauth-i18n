@@ -120,6 +120,33 @@ You can pass any custom options to the `I18n.translate` method via `i18n_options
 i18n_options { { exception_handler: -> (*args) { ... } } }
 ```
 
+## Localized routes
+
+If you want to prefix your routes with current locale, you can do so as
+follows:
+
+```rb
+prefix do
+  if I18n.locale == I18n.default_locale
+    "/auth"
+  else
+    "/#{I18n.locale}/auth"
+  end
+end
+```
+```rb
+route do |r|
+  # ...
+  all_locales = I18n.available_locales.map(&:to_s)
+  # routes requests starting with `(/:locale)/auth/*`
+  r.on [*all_locales, true], "auth" do |locale|
+    rails_request.params[:locale] = locale || I18n.default_locale # if using Rails
+    r.rodauth
+    break
+  end
+end
+```
+
 ## Development
 
 Run tests with Rake:
