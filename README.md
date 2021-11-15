@@ -147,6 +147,48 @@ route do |r|
 end
 ```
 
+## Bundling translations in your Rodauth plugin
+
+To make texts in your Rodauth plugin translatable, use the
+`translatable_method` macro. Macros for defining flash messages, button texts,
+and page titles internally call `translatable_method`, and are thus
+automatically translatable.
+
+```rb
+# lib/rodauth/features/foo.rb
+module Rodauth
+  Feature.define(:foo, :Foo) do
+    translatable_method :foo_message, "This message is translatable"
+    error_flash "Flash messages are automatically translatable", "foo"
+    button "Translatable button text", "foo"
+    view "foo", "Translatable page title", "foo"
+  end
+end
+```
+
+You can then define translations in the `locales/` directory of your gem:
+
+```yml
+# locales/en.yml
+en:
+  rodauth:
+    foo_message: "..."
+    foo_error_flash: "..."
+    foo_button: "..."
+    foo_page_title: "..."
+```
+
+To have rodauth-i18n load your translations, register the directory containing
+your translations when your gem is required:
+
+```rb
+# lib/rodauth-foo.rb
+# ...
+if defined?(Rodauth::I18n)
+  Rodauth::I18n.directories << File.expand_path("#{__dir__}/../locales")
+end
+```
+
 ## Development
 
 Run tests with Rake:
