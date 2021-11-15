@@ -1,6 +1,8 @@
 # rodauth-i18n
 
-Provides [I18n] integration for [Rodauth] authentication framework. It also includes built-in translations, which you are welcome to extend.
+Provides [I18n] integration for [Rodauth] authentication framework.
+
+It also includes built-in translations for various languages, which you are encouraged to extend :pray:
 
 ## Installation
 
@@ -38,11 +40,9 @@ If you're using Rails, the built-in translations will be automatically loaded ba
 ```rb
 require "rodauth/i18n"
 
-# adds built-in locale files to I18n's load path
+# adds built-in locale files to I18n's load path (not needed when using Rails)
 Rodauth::I18n.add
 ```
-
-See the [Rails Internationalization Guide] on how to set the locale.
 
 ### Per configuration translations
 
@@ -78,7 +78,7 @@ i18n_cascade? false
 
 ### Copying translations
 
-In Rails, you can copy built-in translations into your app via the `rodauth:i18n:translations` generator, which receives a list of locales to copy translations for:
+In a Rails app, you can copy built-in translations into your app via the `rodauth:i18n:translations` generator, which receives a list of locales to copy translations for:
 
 ```sh
 $ rails generate rodauth:i18n:translations en hr
@@ -86,7 +86,7 @@ $ rails generate rodauth:i18n:translations en hr
 # create  config/locales/rodauth.hr.yml
 ```
 
-Alternatively, you can copy the translation files directly from the `locales/` directory.
+On other web frameworks, you can copy the translation files directly from the `locales/` directory.
 
 ### Raising on missing translations
 
@@ -149,10 +149,7 @@ end
 
 ## Bundling translations in your Rodauth plugin
 
-To make texts in your Rodauth plugin translatable, use the
-`translatable_method` macro. Macros for defining flash messages, button texts,
-and page titles internally call `translatable_method`, and are thus
-automatically translatable.
+To make texts in your Rodauth plugin translatable, use the `translatable_method` macro. Macros for defining flash messages, button texts, and page titles internally call `translatable_method`, and are thus automatically translatable.
 
 ```rb
 # lib/rodauth/features/foo.rb
@@ -178,8 +175,7 @@ en:
     foo_page_title: "..."
 ```
 
-To have rodauth-i18n load your translations, register the directory containing
-your translations when your gem is required:
+To have rodauth-i18n load your translations, register the directory containing your translations when your gem is required:
 
 ```rb
 # lib/rodauth-foo.rb
