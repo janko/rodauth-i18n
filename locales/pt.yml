@@ -1,0 +1,244 @@
+pt:
+  rodauth:
+    account_expiration_error_flash: Não pode aceder a esta conta, visto que expirou
+    active_sessions_error_flash: Esta sessão foi encerrada
+    add_recovery_codes_button: Adicionar autenticação por códigos de recuperação
+    add_recovery_codes_error_flash: Não foi possível adicionar os códigos de recuperação
+    add_recovery_codes_heading: "<h2>Adicionar mais Códigos de Recuperação</h2>"
+    add_recovery_codes_page_title: Autenticação por Códigos de Recuperação
+    already_an_account_with_this_login_message: já existe uma conta com este login
+    attempt_to_create_unverified_account_error_flash: A conta que tentou criar está à espera de verificação
+    attempt_to_login_to_unverified_account_error_flash: A conta que tentou aceder está à espera de verificação
+    change_login_button: Modificar Login
+    change_login_error_flash: Houve um erro a modificar o seu login
+    change_login_needs_verification_notice_flash: Foi-lhe enviado por email um link para verificar a sua modificação de login
+    change_login_notice_flash: O seu login foi modificado
+    change_login_page_title: Modificar Login
+    change_password_button: Modificar palavra-passe
+    change_password_error_flash: Houve um erro a mudar a sua palavra-passe
+    change_password_notice_flash: A sua palavra-passe foi mudada
+    change_password_page_title: Mudar palavra-passe
+    close_account_button: Fechar conta
+    close_account_error_flash: Houve um erro ao fechar a sua conta
+    close_account_notice_flash: A sua conta foi fechada
+    close_account_page_title: Fechar conta
+    confirm_password_button: Confirmar palavra-passe
+    confirm_password_error_flash: Houve um erro a confirmar a sua palavra-passe
+    confirm_password_link_text: Insira a palavra-passe
+    confirm_password_notice_flash: A palavra-passe foi confirmada
+    confirm_password_page_title: Confirme a palavra-passe
+    contains_null_byte_message: contém um byte nulo
+    create_account_button: Criar conta
+    create_account_error_flash: Houve um erro ao criar a sua conta
+    create_account_link_text: Criar uma nova conta
+    create_account_notice_flash: A sua conta foi criada
+    create_account_page_title: Criar conta
+    email_auth_email_recently_sent_error_flash: Foi-lhe recentemente enviado por email um link para login
+    email_auth_email_sent_notice_flash: Foi-lhe enviado um email com um link para fazer login na sua conta
+    email_auth_email_subject: Link de Login
+    email_auth_error_flash: Houve um erro ao fazer login
+    email_auth_page_title: Login
+    email_auth_request_button: Enviar Link de Login por Email
+    email_auth_request_error_flash: Houve um erro ao requisitar um link de autenticação por email
+    email_subject_prefix: ''
+    expired_jwt_access_token_message: token de Acesso JWT expirada
+    global_logout_label: Encerrar todas as sessões activas?
+    input_field_label_suffix: ''
+    invalid_jwt_format_error_message: Formato JWT inválido ou claim no Authorization header
+    invalid_password_message: palavra-passe inválida
+    invalid_recovery_code_error_flash: Erro ao atenticar através do código de recuperação
+    invalid_recovery_code_message: Código de recuperação inválido
+    json_non_post_error_message: método não-POST usado na API JSON
+    json_not_accepted_error_message: Accept Header não suportado. Deve aceitar "application/json" ou um tipo de conteúdo compatível
+    jwt_refresh_invalid_token_message: token JWT refresh inválida
+    jwt_refresh_without_access_token_message: sem token JWT de acesso disponibilizada durante o refresh
+    login_button: Login
+    login_confirm_label: Confirmar %{login_label}
+    login_does_not_meet_requirements_message: login inválido, não satisfaz os requisitos
+    login_error_flash: Houve um erro ao efectuar o login
+    login_form_footer_links_heading: <h2 class="rodauth-login-form-footer-links-heading">Outras opções</h2>
+    login_label: Login
+    login_lockout_error_flash: De momento esta conta está bloqueada e não pode ser acedida
+    login_not_valid_email_message: não é um endereço de e-mail
+    login_notice_flash: Login efectuado com sucesso
+    login_page_title: Login
+    login_too_long_message: máximo %{login_maximum_length} caracteres
+    login_too_short_message: mínimo %{login_minimum_length} caracteres
+    logins_do_not_match_message: logins não coincidem
+    logout_button: Encerrar sessão
+    logout_notice_flash: A sessão foi encerrada
+    logout_page_title: Encerrar sessão
+    multi_phase_login_page_title: Login
+    need_password_notice_flash: Login reconhecido, por favor insira a sua palavra-passe
+    new_password_label: Nova palavra-passe
+    no_current_sms_code_error_flash: Sem código SMS para esta conta
+    no_matching_email_auth_key_error_flash: 'Houve um erro ao fazer login:: chave de autenticação email inválida'
+    no_matching_login_message: sem login correspondente
+    no_matching_reset_password_key_error_flash: 'Houve um erro ao recuperar a sua palavra-passe: chave de recuperação inválida ou expirada'
+    no_matching_unlock_account_key_error_flash: 'Houve um erro ao desbloquear a sua conta: chave de desbloqueio inválida ou expirada'
+    no_matching_verify_account_key_error_flash: 'Houve um erro ao verificar a sua conta: chave de verificação de conta inválida'
+    no_matching_verify_login_change_key_error_flash: 'Houve um erro ao verificar a sua modificação de login: chave de verificação para modificação de login inválida'
+    non_json_request_error_message: Apenas requests no formato JSON são permitidos
+    otp_already_setup_error_flash: Já configurou a autenticação TOTP
+    otp_auth_button: Autenticar utilizando TOTP
+    otp_auth_error_flash: Erro ao iniciar sessão através de autenticação TOTP
+    otp_auth_form_footer: ''
+    otp_auth_label: Código de Autenticação
+    otp_auth_link_text: Autenticar utilizando TOTP
+    otp_auth_page_title: Insira o código de autenticação
+    otp_disable_button: Desactivar Autenticação TOTP
+    otp_disable_error_flash: Erro ao desactivar a autenticação TOTP
+    otp_disable_link_text: Desactivar Autenticação TOTP
+    otp_disable_notice_flash: Autenticação TOTP foi desactivada
+    otp_disable_page_title: Desactivar Autenticação TOTP
+    otp_invalid_auth_code_message: Código de autenticação inválido
+    otp_invalid_secret_message: secret inválido
+    otp_lockout_error_flash: Código de autenticação TOTP foi bloqueado devido a várias tentativas falhadas
+    otp_provisioning_uri_label: URL de Provisioninamento
+    otp_secret_label: Secret
+    otp_setup_button: Configurar Autenticação TOTP
+    otp_setup_error_flash: Erro ao configurar a autenticação TOTP
+    otp_setup_link_text: Configurar Autenticação TOTP
+    otp_setup_notice_flash: A Autenticação TOTP está configurada
+    otp_setup_page_title: Configurar Autenticação TOTP
+    password_authentication_required_error_flash: Necessita de confirmar a sua palavra-passe para continuar
+    password_changed_email_subject: Palavra-passe modificada
+    password_confirm_label: Confirmar %{password_label}
+    password_does_not_meet_requirements_message: palavra-passe inválida, não satisfaz os requisitos
+    password_expiration_error_flash: A sua palavra-passe expirou e precisa de ser modificada
+    password_in_dictionary_message: é uma palavra num dicionário
+    password_invalid_pattern_message: inclui uma sequência de caracteres comum
+    password_is_one_of_the_most_common_message: é uma das palavras-chave mais comuns
+    password_label: Palavra-passe
+    password_not_changeable_yet_error_flash: A sua palavra-passe ainda não pode ser mudada
+    password_not_enough_character_groups_message: não inclui letras maiúsculas, letras minúsculas e números
+    password_same_as_previous_password_message: igual à palavra-passe anterior
+    password_too_many_repeating_characters_message: contém muitos caracteres repetidos sucessivamente
+    password_too_short_message: mínimo %{password_minimum_length} caracteres
+    passwords_do_not_match_message: palavras-chave não coincidem
+    recovery_auth_button: Autenticar por Código de Recuperação
+    recovery_auth_link_text: Autenticar utilizando Código de Recuperação
+    recovery_auth_page_title: Insira o Código de Recuperação
+    recovery_codes_added_notice_flash: Foram adicionados mais Códigos de Recuperação
+    recovery_codes_label: Código de Recuperação
+    recovery_codes_link_text: Ver Códigos de Recuperação de Autenticação
+    recovery_codes_page_title: Ver Códigos de Recuperação de Autenticação
+    remember_button: Modificar configurações de "Lembrar-me"
+    remember_disable_label: Desactivar "Lembrar-me"
+    remember_error_flash: Houve um erro ao actualizar a sua configuração de "Lembrar-me"
+    remember_forget_label: Esquecer-me
+    remember_notice_flash: A sua configuração de "Lembrar-me" foi actualizada
+    remember_page_title: Modificar configuração de "Lembrar-me"
+    remember_remember_label: Lembrar-me
+    require_login_error_flash: Por favor faça login para continuar
+    resend_verify_account_page_title: Reenviar Email de Verificação
+    reset_password_button: Recuperar palavra-passe
+    reset_password_email_recently_sent_error_flash: Foi-lhe enviado recentemente um email com um link para recuperar a sua palavra-passe
+    reset_password_email_sent_notice_flash: Foi-lhe enviado um email com um link para recuperar a sua palavra-passe
+    reset_password_email_subject: Recuperar palavra-passe
+    reset_password_error_flash: Houve um erro ao recuperar a sua palavra-passe
+    reset_password_explanatory_text: "<p>Se esqueceu a sua palavra-passe, pode fazer um pedido de recuperação:</p>"
+    reset_password_notice_flash: A sua palavra-passe foi recuperada
+    reset_password_page_title: Recuperar palavra-passe
+    reset_password_request_button: Pedir recuperação da palavra-passe
+    reset_password_request_error_flash: Houve um erro ao efectuar o pedido de recuperação de palavra-passe
+    reset_password_request_link_text: Esqueceu-se da palavra-passe?
+    reset_password_request_page_title: Pedir Recuperação de Palavra-chave
+    same_as_current_login_message: igual ao login actual
+    same_as_existing_password_message: palavra-passe inválida, igual à palavra-passe actual
+    session_expiration_error_flash: Esta sessão expirou, por favor faça login novamente
+    single_session_error_flash: Esta sessão foi terminada dado que outra sessão ficou activa
+    sms_already_setup_error_flash: Autenticação SMS já foi configurada
+    sms_auth_button: Autenticar através de código SMS
+    sms_auth_link_text: Autenticar utilizando código SMS
+    sms_auth_page_title: Autenticar através de código SMS
+    sms_code_label: Código SMS
+    sms_confirm_button: Confirme o número para SMS de Backup
+    sms_confirm_notice_flash: Autenticação SMS foi configurada
+    sms_confirm_page_title: Confirme o número para SMS de Backup
+    sms_disable_button: Desactivar Autenticação de Backup por SMS
+    sms_disable_error_flash: Erro ao desactivar a autenticação por SMS
+    sms_disable_link_text: Desactivar Autenticação por SMS
+    sms_disable_notice_flash: Autenticação por SMS foi desactivada
+    sms_disable_page_title: Desactivar Autenticação de Backup por SMS
+    sms_invalid_code_error_flash: Erro ao autenticar através de código SMS
+    sms_invalid_code_message: código SMS inválido
+    sms_invalid_confirmation_code_error_flash: Código de confirmação SMS inválido ou desactualizado, deverá configurar a autenticação SMS novamente
+    sms_invalid_phone_message: número de telefone para SMS inválido
+    sms_lockout_error_flash: Autenticação SMS foi bloqueada
+    sms_needs_confirmation_error_flash: Autenticação SMS necessita de confirmação
+    sms_not_setup_error_flash: Autenticação SMS ainda não foi configurada
+    sms_phone_label: Número de Telefone
+    sms_request_button: Enviar código SMS
+    sms_request_notice_flash: Código de autenticação SMS enviado
+    sms_request_page_title: Enviar código SMS
+    sms_setup_button: Configurar número SMS de Backup
+    sms_setup_error_flash: Erro ao configurar a autenticação através de SMS
+    sms_setup_link_text: Configurar Autenticação SMS de Backup
+    sms_setup_page_title: Configurar número SMS de Backup
+    two_factor_already_authenticated_error_flash: Já foi autenticado através de multifactor
+    two_factor_auth_notice_flash: Foi autenticado através de multifactor
+    two_factor_auth_page_title: Autenticar utilizando um factor adicional
+    two_factor_disable_button: Remover todos os métodos de Autenticação Multifactor
+    two_factor_disable_error_flash: Não foi possível remover todos os métodos de autenticação multifactor
+    two_factor_disable_link_text: Remover todos os métodos de Autenticação Multifactor
+    two_factor_disable_notice_flash: Todos os métodos de Autenticação Multifactor foram desactivados
+    two_factor_disable_page_title: Remover todos os métodos de Autenticação Multifactor
+    two_factor_manage_page_title: Gerir Autenticação Multifactor
+    two_factor_need_authentication_error_flash: Deverá autenticar-se através de um factor adicional antes de continuar
+    two_factor_not_setup_error_flash: Esta conta não foi configurada para autenticação multifactor
+    two_factor_remove_heading: "<h2>Remover Autenticação Multifactor</h2>"
+    two_factor_setup_heading: "<h2>Configurar Autenticação Multifactor</h2>"
+    unlock_account_button: Desbloquear Conta
+    unlock_account_email_recently_sent_error_flash: Foi-lhe enviado um email recentemente com um link para desbloquear a conta
+    unlock_account_email_subject: Desbloquear Conta
+    unlock_account_error_flash: Houve um erro ao desbloquear a sua conta
+    unlock_account_explanatory_text: "<p>Esta conta está actualmente bloqueada.  Pode desbloquear a conta:</p>"
+    unlock_account_notice_flash: A sua conta foi desbloqueada
+    unlock_account_page_title: Desbloquear Conta
+    unlock_account_request_button: Pedir desbloqueio de conta
+    unlock_account_request_explanatory_text: "<p>Esta conta está actualmente bloqueada.  Pode fazer um pedido para a conta ser desbloqueada:</p>"
+    unlock_account_request_notice_flash: Foi-lhe enviado um email com um link para desbloquear a conta
+    unlock_account_request_page_title: Pedir desbloqueio de conta
+    unverified_account_message: conta não-verificada, por favor verifique a conta antes de fazer login
+    unverified_change_login_error_flash: Por favor verifique esta conta antes de modificar o login
+    verify_account_button: Verificar Conta
+    verify_account_email_recently_sent_error_flash: Foi-lhe enviado um email recentemente com um link para verificar a sua conta
+    verify_account_email_sent_notice_flash: Foi-lhe enviado um email com um link para verificar a sua conta
+    verify_account_email_subject: Verificar Conta
+    verify_account_error_flash: Não foi possível verificar a conta
+    verify_account_notice_flash: A sua conta foi verificada
+    verify_account_page_title: Verificar Conta
+    verify_account_resend_button: Reenviar email de verificação
+    verify_account_resend_error_flash: Não foi possível reenviar o email de verificação de conta
+    verify_account_resend_explanatory_text: "<p>Se já não possui o email para verificar a conta, pode pedir que lhe seja reenviado:</p>"
+    verify_account_resend_link_text: Reenviar informação de verificação de conta
+    verify_login_change_button: Verificar modificação de Login
+    verify_login_change_duplicate_account_error_flash: Não foi possível proceder à modificação de login porque já existe uma conta com o novo login
+    verify_login_change_email_subject: Verificar modificação de Login
+    verify_login_change_error_flash: Não foi possível verificar a modificação de login
+    verify_login_change_notice_flash: A sua modificação de login foi verificada
+    verify_login_change_page_title: Verificar modificação de Login
+    view_recovery_codes_button: Ver códigos de recuperação para autenticação
+    view_recovery_codes_error_flash: Não foi possível visualizar os códigos de recuperação
+    webauthn_auth_button: Autenticar com WebAuthn
+    webauthn_auth_error_flash: Erro ao autenticar com WebAuthn
+    webauthn_auth_link_text: Autenticar com WebAuthn
+    webauthn_auth_page_title: Autenticar com WebAuthn
+    webauthn_duplicate_webauthn_id_message: tentativa de adicionar um id webauthn duplicado
+    webauthn_invalid_auth_param_message: parâmetro de autenticação webauthn inválido
+    webauthn_invalid_remove_param_message: deve seleccionar um autenticador webauthn válido para remover
+    webauthn_invalid_setup_param_message: parâmetro de configuração webauthn inválido
+    webauthn_invalid_sign_count_message: credencial webauthn tem um sign count inválido
+    webauthn_login_error_flash: Houve um erro a autenticar utilizando WebAuthn
+    webauthn_not_setup_error_flash: Esta conta não foi configurada para autenticação WebAuthn
+    webauthn_remove_button: Removee Autenticador WebAuthn
+    webauthn_remove_error_flash: Erro ao remover autenticador WebAuthn
+    webauthn_remove_link_text: Remover autenticador WebAuthn
+    webauthn_remove_notice_flash: O autenticador WebAuthn foi removido
+    webauthn_remove_page_title: Remover Autenticador WebAuthn
+    webauthn_setup_button: Configurar Autenticação WebAuthn
+    webauthn_setup_error_flash: Erro ao configurar a autenticação WebAuthn
+    webauthn_setup_link_text: Configurar Autenticação WebAuthn
+    webauthn_setup_notice_flash: A Autenticação WebAuthn está agora configurada
+    webauthn_setup_page_title: Configurar Autenticação WebAuthn
