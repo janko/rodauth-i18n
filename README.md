@@ -185,6 +185,22 @@ if defined?(Rodauth::I18n)
 end
 ```
 
+or when the feature has been loaded by `rodauth`:
+
+```rb
+module Rodauth
+  Feature.define(:my_feature, :MyFeature) do
+
+  # ...
+
+  def post_configure
+    super
+
+    Rodauth::I18n.directories << File.expand_path("#{__dir__}/../locales")
+  end
+end
+```
+
 ## Development
 
 Run tests with Rake:

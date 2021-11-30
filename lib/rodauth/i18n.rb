@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "set"
 require "i18n"
 require "rodauth/i18n/railtie" if defined?(Rails)
 
@@ -23,7 +24,7 @@ module Rodauth
     end
 
     def self.directories
-      @directories ||= [File.expand_path("#{__dir__}/../../locales")]
+      @directories ||= Set[File.expand_path("#{__dir__}/../../locales")]
     end
   end
 end
