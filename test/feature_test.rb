@@ -1,4 +1,5 @@
 require "test_helper"
+require "tempfile"
 
 describe "i18n feature" do
   it "loads built-in locales" do
@@ -22,8 +23,6 @@ describe "i18n feature" do
   end
 
   it "picks up configuration-specific translations" do
-    I18n.backend.store_translations(:en, { rodauth: { admin: { login_label: "Admin Login" } } })
-
     rodauth do
       enable :i18n, :login
     end
@@ -32,14 +31,14 @@ describe "i18n feature" do
       r.root { view content: "" }
     end
 
+    I18n.backend.store_translations(:en, { rodauth: { admin: { login_label: "Admin Login" } } })
+
     visit "/login"
     assert_match "Admin Login", page.text
     assert_match "Password", page.text
   end
 
   it "allows configuring translation namespace" do
-    I18n.backend.store_translations(:en, { rodauth: { admin: { login_label: "Admin Login" } } })
-
     rodauth do
       enable :i18n, :login
       i18n_namespace "admin"
@@ -49,14 +48,14 @@ describe "i18n feature" do
       r.root { view content: "" }
     end
 
+    I18n.backend.store_translations(:en, { rodauth: { admin: { login_label: "Admin Login" } } })
+
     visit "/login"
     assert_match "Admin Login", page.text
     assert_match "Password", page.text
   end
 
   it "doesn't cascade to top-level translation namespace if configured" do
-    I18n.backend.store_translations(:en, { rodauth: { admin: { login_label: "Admin Login" } } })
-
     rodauth do
       enable :i18n, :login
       i18n_cascade? false
@@ -65,6 +64,8 @@ describe "i18n feature" do
       r.rodauth(:admin)
       r.root { view content: "" }
     end
+
+    I18n.backend.store_translations(:en, { rodauth: { admin: { login_label: "Admin Login" } } })
 
     visit "/login"
     assert_match "Admin Login", page.text
@@ -137,5 +138,33 @@ describe "i18n feature" do
     assert_raises I18n::MissingTranslationData do
       visit "/"
     end
+  end
+
+  it "registers locale files idempotently when post_configure is called multiple times" do
+    rodauth do
+      enable :i18n, :internal_request
+    end
+    roda do |r|
+    end
+
+    assert_equal I18n.load_path, I18n.load_path.uniq
+  end
+
+  it "doesn't override previous translations" do
+    tempfile = Tempfile.new ["", ".yml"]
+    tempfile.write YAML.dump({ en: { rodauth: { login_label: "Email" } } })
+    tempfile.close
+
+    I18n.load_path += [tempfile.path]
+
+    rodauth do
+      enable :i18n, :login, :internal_request
+    end
+    roda do |r|
+      r.rodauth
+    end
+
+    visit "/login"
+    assert_match "Email", page.text
   end
 end
