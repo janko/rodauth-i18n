@@ -35,14 +35,7 @@ plugin :rodauth do
 end
 ```
 
-If you're using Rails, the built-in translations will be automatically loaded based on your configured available locales. Otherwise, you need to manually add them to I18n's load path before translations have been loaded:
-
-```rb
-require "rodauth/i18n"
-
-# adds built-in locale files to I18n's load path (not needed when using Rails)
-Rodauth::I18n.add
-```
+This will make translations go through the [I18n] gem, and will automatically load translations for locales specified in `I18n.available_locales` (if unset, translations for *all* locales will be loaded).
 
 ### Per configuration translations
 
@@ -163,7 +156,7 @@ module Rodauth
 end
 ```
 
-You can then define translations in the `locales/` directory of your gem:
+You can then define translations in the `locales/` directory in your gem root:
 
 ```yml
 # locales/en.yml
@@ -175,13 +168,19 @@ en:
     foo_page_title: "..."
 ```
 
-To have rodauth-i18n load your translations, register the directory containing your translations when your gem is required:
+Then, to have rodauth-i18n load your translations, register the directory when loading the feature:
 
 ```rb
-# lib/rodauth-foo.rb
-# ...
-if defined?(Rodauth::I18n)
-  Rodauth::I18n.directories << File.expand_path("#{__dir__}/../locales")
+# lib/rodauth/features/foo.rb
+module Rodauth
+  Feature.define(:foo, :Foo) do
+    # ...
+    def post_configure
+      super
+      i18n_register File.expand_path("#{__dir__}/../../../locales") if features.include?(:i18n)
+    end
+    # ...
+  end
 end
 ```
 

@@ -8,11 +8,11 @@ require "minitest/hooks/default"
 
 require "capybara/dsl"
 require "securerandom"
-require "rodauth/i18n"
 
 require "rodauth"
 require "sequel/core"
 require "roda"
+require "i18n"
 
 DB = Sequel.connect("#{"jdbc:" if RUBY_ENGINE == "jruby"}sqlite::memory")
 
@@ -23,7 +23,6 @@ DB.create_table :accounts do
 end
 
 I18n.available_locales = [:en, :hr]
-Rodauth::I18n.add
 
 class Minitest::HooksSpec
   include Capybara::DSL
@@ -57,6 +56,7 @@ class Minitest::HooksSpec
   end
 
   before do
+    I18n.load_path.clear
     I18n.reload!
   end
 
