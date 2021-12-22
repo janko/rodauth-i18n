@@ -150,6 +150,18 @@ describe "i18n feature" do
     assert_equal I18n.load_path, I18n.load_path.uniq
   end
 
+  it "adds i18n files into a specific plugin global registry" do
+    rodauth do
+      enable :i18n
+    end
+
+    roda do |r|
+    end
+
+    en_file = File.expand_path(File.join(__dir__, "..", "locales", "en.yml"))
+    assert_includes Rodauth::I18n.i18n_files, en_file
+  end
+
   it "doesn't override previous translations" do
     tempfile = Tempfile.new ["", ".yml"]
     tempfile.write YAML.dump({ en: { rodauth: { login_label: "Email" } } })

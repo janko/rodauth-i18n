@@ -16,6 +16,12 @@ module Rodauth
       :i18n_locale,
     )
 
+    @i18n_files = []
+
+    class << self
+      attr_reader :i18n_files
+    end
+
     def post_configure
       super
       i18n_register File.expand_path("#{__dir__}/../../../locales")
@@ -76,6 +82,7 @@ module Rodauth
     # point, so we prepend built-in translations to the load path to ensure we
     # don't override them.
     def i18n_add(file)
+      I18n.i18n_files << file
       ::I18n.load_path.unshift(file) unless ::I18n.load_path.include?(file)
     end
 
