@@ -63,6 +63,7 @@ en:
     login_notice_flash: You have been logged in
     login_page_title: Login
     login_too_long_message: maximum %{login_maximum_length} characters
+    login_too_many_bytes_message: maximum %{login_maximum_bytes} bytes
     login_too_short_message: minimum %{login_minimum_length} characters
     logins_do_not_match_message: logins do not match
     logout_button: Logout
@@ -114,6 +115,8 @@ en:
     password_not_enough_character_groups_message: does not include uppercase letters, lowercase letters, and numbers
     password_same_as_previous_password_message: same as previous password
     password_too_many_repeating_characters_message: contains too many of the same character in a row
+    password_too_long_message: maximum %{password_maximum_length} characters
+    password_too_many_bytes_message: maximum %{password_maximum_bytes} bytes
     password_too_short_message: minimum %{password_minimum_length} characters
     passwords_do_not_match_message: passwords do not match
     recovery_auth_button: Authenticate via Recovery Code

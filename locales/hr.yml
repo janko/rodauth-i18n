@@ -21,9 +21,12 @@ hr:
     login_does_not_meet_requirements_message: neispravna email adresa, ne ispunjava uvjete
     login_label: Email adresa
     login_too_long_message: najviše %{login_maximum_length} znakova
+    login_too_many_bytes_message: najviše %{login_maximum_bytes} bajtova
     login_too_short_message: najmanje %{login_minimum_length} znakova
     password_confirm_label: Potvrda lozinke
     password_does_not_meet_requirements_message: neispravna lozinka, ne ispunjava uvjete
     password_label: Lozinka
+    password_too_long_message: najviše %{password_maximum_length} znakova
+    password_too_many_bytes_message: najviše %{password_maximum_bytes} bajtova
     password_too_short_message: najmanje %{password_minimum_length} znakova
     # ...
