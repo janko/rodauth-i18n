@@ -1,3 +1,4 @@
+require "set"
 require "i18n"
 
 module Rodauth
@@ -16,7 +17,7 @@ module Rodauth
       :i18n_locale,
     )
 
-    @i18n_files = []
+    @i18n_files = Set.new
 
     class << self
       attr_reader :i18n_files

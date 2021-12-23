@@ -1,4 +1,4 @@
-require "rails/generators/base"
+require "rails/generators"
 
 module Rodauth
   module Rails
@@ -10,11 +10,33 @@ module Rodauth
         desc: "List of locales to copy translation files for"
 
       def copy_locales
-        locales.each do |locale|
-          copy_file("#{locale}.yml", "config/locales/rodauth.#{locale}.yml")
-        end
-
         say "No locales specified!", :yellow if locales.empty?
+
+        # eager-load rodauth app
+        Rodauth::Rails.app
+
+        by_locale = Rodauth::I18n.i18n_files.select do |file|
+          locales.include?(File.basename(file, ".yml"))
+        end.group_by{ |file| File.basename(file, ".yml")}
+
+        by_locale.each do |locale, files|
+          destination = File.join(destination_root, "config", "locales", "rodauth.#{locale}.yml")
+
+          # try to load existing translations first
+          existing_translations = if File.exist?(destination)
+            YAML.load_file(destination)
+          else
+            {}
+          end
+
+          data = files.reduce(existing_translations) do |translations, file|
+            translations.merge(YAML.load_file(file)[locale])
+          end
+
+          create_file(destination) do |destination|
+            YAML.dump({locale => data}, line_width: 1000).split("\n", 2).last
+          end
+        end
       end
 
       private
