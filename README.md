@@ -26,7 +26,7 @@ $ gem install rodauth-i18n
 
 ## Usage
 
-Enable the `i18n` feature in your Rodauth configuration:
+Enable the `i18n` feature in your Rodauth configuration, which overrides Rodauth's `#translate` method to use the [I18n] gem.
 
 ```rb
 plugin :rodauth do
@@ -35,7 +35,7 @@ plugin :rodauth do
 end
 ```
 
-This will make translations go through the [I18n] gem, and will automatically load translations for locales specified in `I18n.available_locales` (if unset, translations for *all* locales will be loaded).
+Enabling the feature will automatically load built-in translations for locales specified in `I18n.available_locales`. If unset, translations for *all* locales will be loaded.
 
 ### Per configuration translations
 
@@ -95,6 +95,14 @@ In some cases it can be useful to fall back to untranslated value when the trans
 
 ```rb
 i18n_fallback_to_untranslated? { Rails.env.production? }
+```
+
+### Available locales
+
+If you want to load translations for a set of locales different than `I18n.available_locales`, you can configure that:
+
+```rb
+i18n_available_locales [:en, :pt]
 ```
 
 ### Overriding current locale
