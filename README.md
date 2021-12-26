@@ -71,12 +71,15 @@ i18n_cascade? false
 
 ### Copying translations
 
-In a Rails app, you can copy built-in translations into your app via the `rodauth:translations` generator, which receives a list of locales to copy translations for:
+In a Rails app, you can copy built-in translations into your app via the `rodauth:translations` generator. By default, it will import translations for available locales, but you can also give it a list of locales:
 
 ```sh
 $ rails generate rodauth:translations en hr
 # create  config/locales/rodauth.en.yml
 # create  config/locales/rodauth.hr.yml
+
+$ rails generate rodauth:translations
+# imports translations for available locales
 ```
 
 On other web frameworks, you can copy the translation files directly from the `locales/` directory.
