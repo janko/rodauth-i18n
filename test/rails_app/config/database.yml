@@ -1,3 +1,0 @@
-test:
-  adapter: <%= RUBY_ENGINE == 'jruby' ? 'jdbc:sqlite' : 'sqlite3' %>
-  database: ":memory:"

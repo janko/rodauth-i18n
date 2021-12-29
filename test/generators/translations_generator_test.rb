@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
-require "rails"
-require "rodauth/rails"
-require_relative "../test_helper"
+require "test_helper"
 require_relative "../rails_app/config/environment"
 require "generators/rodauth/translations_generator"
 
 class InstallGeneratorTest < Rails::Generators::TestCase
   tests Rodauth::Rails::TranslationsGenerator
-  destination File.expand_path("#{__dir__}/../tmp")
+  destination File.expand_path("#{__dir__}/../../tmp")
   setup :prepare_destination
 
   test "locales" do
