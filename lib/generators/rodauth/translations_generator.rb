@@ -15,7 +15,7 @@ module Rodauth
         # eager-load rodauth app
         Rodauth::Rails.app
 
-        by_locale = Rodauth::I18n.i18n_files.select do |file|
+        by_locale = rodauth_translation_files.select do |file|
           locales.include?(File.basename(file, ".yml"))
         end.group_by{ |file| File.basename(file, ".yml")}
 
@@ -40,6 +40,12 @@ module Rodauth
       end
 
       private
+
+      def rodauth_translation_files
+        Rodauth::I18n.directories.inject([]) do |files, directory|
+          files += Dir["#{directory}/*.yml"]
+        end
+      end
 
       def locales
         selected_locales || available_locales
