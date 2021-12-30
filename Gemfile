@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 gemspec
 
+gem "rails", ">= 4.2"
+gem "rodauth-rails"
+
 gem "rake", "~> 13.0"
 gem "rodauth", ">= 2.16"
 
