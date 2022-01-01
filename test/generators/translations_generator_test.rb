@@ -29,6 +29,13 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     end
   end
 
+  test "default locales" do
+    run_generator %w[]
+
+    assert_file "config/locales/rodauth.en.yml"
+    assert_file "config/locales/rodauth.hr.yml"
+  end
+
   test "existing translations" do
     create_file "config/locales/rodauth.en.yml", <<~YAML
       en:

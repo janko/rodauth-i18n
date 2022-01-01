@@ -56,7 +56,7 @@ module Rodauth
       end
 
       def locales
-        selected_locales || available_locales
+        selected_locales || available_locales.map(&:to_s)
       end
 
       def available_locales
