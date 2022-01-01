@@ -82,6 +82,8 @@ $ rails generate rodauth:translations
 # imports translations for available locales
 ```
 
+Only translations for currently enabled Rodauth features will be imported. Re-running the generator will import new translations while keeping the existing translations unchanged.
+
 On other web frameworks, you can copy the translation files directly from the `locales/` directory.
 
 ### Raising on missing translations

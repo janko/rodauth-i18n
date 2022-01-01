@@ -1,6 +1,6 @@
 class RodauthApp < Rodauth::Rails::App
   configure do
-    enable :i18n, :login
+    enable :i18n, :login, :verify_account
     rails_controller { RodauthController }
   end
 

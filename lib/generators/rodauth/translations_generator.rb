@@ -1,4 +1,6 @@
 require "rails/generators"
+require "active_support/core_ext/hash/reverse_merge"
+require "active_support/core_ext/hash/slice"
 
 module Rodauth
   module Rails
@@ -27,6 +29,8 @@ module Rodauth
 
           files.each do |file|
             default_translations = YAML.load_file(file)[locale]["rodauth"]
+            default_translations.slice! *rodauth_methods # select used translations
+
             translations[locale]["rodauth"].reverse_merge!(default_translations)
           end
 
@@ -53,6 +57,13 @@ module Rodauth
         Rodauth::I18n.directories
           .map { |directory| Dir["#{directory}/#{locale}.yml"] }
           .inject(:+)
+      end
+
+      def rodauth_methods
+        rodauths
+          .flat_map { |rodauth| rodauth.instance_methods - Object.instance_methods }
+          .map(&:to_s)
+          .sort
       end
 
       def locales

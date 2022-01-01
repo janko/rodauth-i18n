@@ -16,7 +16,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
     assert_file "config/locales/rodauth.en.yml" do |content|
       translations = YAML.load(content)
-      assert_equal "Logout", translations["en"]["rodauth"]["logout_button"]
+      assert_equal "Password", translations["en"]["rodauth"]["password_label"]
     end
   end
 
@@ -25,7 +25,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
     assert_file "config/locales/rodauth.pt.yml" do |content|
       translations = YAML.load(content)
-      assert_equal "Encerrar sessão", translations["pt"]["rodauth"]["logout_button"]
+      assert_equal "Palavra-passe", translations["pt"]["rodauth"]["password_label"]
     end
   end
 
@@ -34,6 +34,16 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
     assert_file "config/locales/rodauth.en.yml"
     assert_file "config/locales/rodauth.hr.yml"
+  end
+
+  test "used translations" do
+    run_generator %w[en]
+
+    assert_file "config/locales/rodauth.en.yml" do |content|
+      translations = YAML.load(content)
+      assert_equal "Password", translations["en"]["rodauth"]["password_label"]
+      assert_nil translations["en"]["rodauth"]["email_auth_request_button"]
+    end
   end
 
   test "existing translations" do
