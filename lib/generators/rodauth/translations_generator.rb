@@ -1,5 +1,4 @@
 require "rails/generators"
-require "active_support/core_ext/hash/reverse_merge"
 require "active_support/core_ext/hash/slice"
 
 module Rodauth
@@ -14,46 +13,47 @@ module Rodauth
       def copy_locales
         say "No locales specified!", :yellow if locales.empty?
 
-        # eager-load rodauth app
-        Rodauth::Rails.app
-
         locales.each do |locale|
-          files = translation_files(locale)
+          translations = retrieve_translations(locale)
 
-          if files.empty?
+          if translations.empty?
             say "No translations for locale: #{locale}", :yellow
             next
           end
 
-          translations = existing_translations(locale)
+          # retain translations the user potentially changed
+          translations.merge!(existing_translations(locale))
+          # keep only translations for currently enabled features
+          translations.slice!(*rodauth_methods)
 
-          files.each do |file|
-            default_translations = YAML.load_file(file)[locale]["rodauth"]
-            default_translations.slice! *rodauth_methods # select used translations
-
-            translations[locale]["rodauth"].reverse_merge!(default_translations)
-          end
-
-          create_file("config/locales/rodauth.#{locale}.yml") do |destination|
-            YAML.dump(translations, line_width: 10_000).split("\n", 2).last
-          end
+          create_file "config/locales/rodauth.#{locale}.yml", locale_content(locale, translations)
         end
       end
 
       private
+
+      def retrieve_translations(locale)
+        files = translation_files(locale)
+        files.inject({}) do |translations, file|
+          translations.merge YAML.load_file(file)[locale]["rodauth"]
+        end
+      end
 
       def existing_translations(locale)
         destination = File.join(destination_root, "config/locales/rodauth.#{locale}.yml")
 
         # try to load existing translations first
         if File.exist?(destination)
-          YAML.load_file(destination)
+          YAML.load_file(destination)[locale]["rodauth"]
         else
-          { locale => { "rodauth" => {} } }
+          {}
         end
       end
 
       def translation_files(locale)
+        # ensure Rodauth configuration ran in autoloaded environment
+        Rodauth::Rails.app
+
         Rodauth::I18n.directories
           .map { |directory| Dir["#{directory}/#{locale}.yml"] }
           .inject(:+)
@@ -64,6 +64,12 @@ module Rodauth
           .flat_map { |rodauth| rodauth.instance_methods - Object.instance_methods }
           .map(&:to_s)
           .sort
+      end
+
+      def locale_content(locale, translations)
+        data = { locale => { "rodauth" => translations } }
+        yaml = YAML.dump(data, line_width: 10_000) # disable line wrapping
+        yaml.split("\n", 2).last # remove "---" header
       end
 
       def locales

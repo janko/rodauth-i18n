@@ -62,19 +62,34 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     end
   end
 
-  test "keeping custom translations" do
+  test "removing translations" do
     create_file "config/locales/rodauth.en.yml", <<~YAML
       en:
         rodauth:
-          foo: "Bar"
+          unlock_account_button: Unlock Account
     YAML
 
     run_generator %w[en --force]
 
     assert_file "config/locales/rodauth.en.yml" do |content|
       translations = YAML.load(content)
-      assert_equal "Bar", translations["en"]["rodauth"]["foo"]
-      assert_equal "Login", translations["en"]["rodauth"]["login_label"]
+      assert_nil translations["en"]["rodauth"]["unlock_account_button"]
+      assert_equal "Login", translations["en"]["rodauth"]["login_button"]
+    end
+  end
+
+  test "keeping translations of custom features" do
+    create_file "config/locales/rodauth.en.yml", <<~YAML
+      en:
+        rodauth:
+          custom: Custom
+    YAML
+
+    run_generator %w[en --force]
+
+    assert_file "config/locales/rodauth.en.yml" do |content|
+      translations = YAML.load(content)
+      assert_equal "Custom", translations["en"]["rodauth"]["custom"]
     end
   end
 
