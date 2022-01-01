@@ -15,11 +15,14 @@ module Rodauth
         # eager-load rodauth app
         Rodauth::Rails.app
 
-        by_locale = rodauth_translation_files.select do |file|
-          locales.include?(File.basename(file, ".yml"))
-        end.group_by{ |file| File.basename(file, ".yml")}
+        locales.each do |locale|
+          files = translation_files(locale)
 
-        by_locale.each do |locale, files|
+          if files.empty?
+            say "No translations for locale: #{locale}", :yellow
+            next
+          end
+
           destination = File.join(destination_root, "config", "locales", "rodauth.#{locale}.yml")
 
           # try to load existing translations first
@@ -42,10 +45,10 @@ module Rodauth
 
       private
 
-      def rodauth_translation_files
-        Rodauth::I18n.directories.inject([]) do |files, directory|
-          files += Dir["#{directory}/*.yml"]
-        end
+      def translation_files(locale)
+        Rodauth::I18n.directories
+          .map { |directory| Dir["#{directory}/#{locale}.yml"] }
+          .inject(:+)
       end
 
       def locales
