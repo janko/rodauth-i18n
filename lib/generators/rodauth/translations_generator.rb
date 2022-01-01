@@ -23,14 +23,7 @@ module Rodauth
             next
           end
 
-          destination = File.join(destination_root, "config", "locales", "rodauth.#{locale}.yml")
-
-          # try to load existing translations first
-          translations = if File.exist?(destination)
-            YAML.load_file(destination)
-          else
-            { locale => { "rodauth" => {} } }
-          end
+          translations = existing_translations(locale)
 
           files.each do |file|
             default_translations = YAML.load_file(file)[locale]["rodauth"]
@@ -44,6 +37,17 @@ module Rodauth
       end
 
       private
+
+      def existing_translations(locale)
+        destination = File.join(destination_root, "config/locales/rodauth.#{locale}.yml")
+
+        # try to load existing translations first
+        if File.exist?(destination)
+          YAML.load_file(destination)
+        else
+          { locale => { "rodauth" => {} } }
+        end
+      end
 
       def translation_files(locale)
         Rodauth::I18n.directories
