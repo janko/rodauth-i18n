@@ -30,9 +30,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   end
 
   test "existing translations" do
-    path = File.join(destination_root, "config/locales/rodauth.en.yml")
-    mkdir_p File.dirname(path)
-    File.write(path, <<~YAML)
+    create_file "config/locales/rodauth.en.yml", <<~YAML
       en:
         rodauth:
           login_label: Email
@@ -44,6 +42,22 @@ class InstallGeneratorTest < Rails::Generators::TestCase
       translations = YAML.load(content)
       assert_equal "Email", translations["en"]["rodauth"]["login_label"]
       assert_equal "Password", translations["en"]["rodauth"]["password_label"]
+    end
+  end
+
+  test "keeping custom translations" do
+    create_file "config/locales/rodauth.en.yml", <<~YAML
+      en:
+        rodauth:
+          foo: "Bar"
+    YAML
+
+    run_generator %w[en --force]
+
+    assert_file "config/locales/rodauth.en.yml" do |content|
+      translations = YAML.load(content)
+      assert_equal "Bar", translations["en"]["rodauth"]["foo"]
+      assert_equal "Login", translations["en"]["rodauth"]["login_label"]
     end
   end
 
@@ -60,5 +74,13 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     output = run_generator %w[]
 
     assert_equal "No locales specified!", output.strip
+  end
+
+  private
+
+  def create_file(path, content)
+    path = File.join(destination_root, path)
+    mkdir_p File.dirname(path)
+    File.write(path, content)
   end
 end
