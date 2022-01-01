@@ -83,6 +83,24 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     assert_equal "No locales specified!", output.strip
   end
 
+  test "no YAML header" do
+    run_generator %w[en]
+
+    assert_file "config/locales/rodauth.en.yml" do |content|
+      # assert that first line is not "---"
+      assert_equal "en:", content.split("\n").first
+    end
+  end
+
+  test "no line wrapping" do
+    run_generator %w[en]
+
+    assert_file "config/locales/rodauth.en.yml" do |content|
+      assert_match %(verify_account_resend_explanatory_text: "<p>If you no longer have the email to verify the account, you can request that it be resent to you:</p>"), content
+    end
+
+  end
+
   private
 
   def create_file(path, content)

@@ -31,7 +31,7 @@ module Rodauth
           end
 
           create_file("config/locales/rodauth.#{locale}.yml") do |destination|
-            YAML.dump(translations, line_width: 1000).split("\n", 2).last
+            YAML.dump(translations, line_width: 10_000).split("\n", 2).last
           end
         end
       end
