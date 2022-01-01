@@ -23,18 +23,19 @@ module Rodauth
           destination = File.join(destination_root, "config", "locales", "rodauth.#{locale}.yml")
 
           # try to load existing translations first
-          existing_translations = if File.exist?(destination)
+          translations = if File.exist?(destination)
             YAML.load_file(destination)
           else
-            {}
+            { locale => { "rodauth" => {} } }
           end
 
-          data = files.reduce(existing_translations) do |translations, file|
-            translations.merge(YAML.load_file(file)[locale])
+          files.each do |file|
+            default_translations = YAML.load_file(file)[locale]["rodauth"]
+            translations[locale]["rodauth"].reverse_merge!(default_translations)
           end
 
-          create_file(destination) do |destination|
-            YAML.dump({locale => data}, line_width: 1000).split("\n", 2).last
+          create_file("config/locales/rodauth.#{locale}.yml") do |destination|
+            YAML.dump(translations, line_width: 1000).split("\n", 2).last
           end
         end
       end
