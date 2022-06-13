@@ -9,7 +9,7 @@ It also includes built-in translations for various languages, which you are enco
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "rodauth-i18n", "~> 0.3"
+gem "rodauth-i18n", "~> 0.4"
 ```
 
 And then execute:
