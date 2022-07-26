@@ -23,7 +23,7 @@ fr:
     close_account_notice_flash: Votre compte a été supprimé
     close_account_page_title: Supprimer le compte
     confirm_password_button: Confirmer le mot de passe
-    confirm_password_error_flash: Erreur lors de la confirmartion du mot de passe
+    confirm_password_error_flash: Erreur lors de la confirmation du mot de passe
     confirm_password_link_text: Entrez votre mot de passe 
     confirm_password_notice_flash: Votre mot de passe a été confirmé
     confirm_password_page_title: Confirmer le mot de passe
