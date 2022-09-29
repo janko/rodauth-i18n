@@ -146,12 +146,15 @@ route do |r|
   all_locales = I18n.available_locales.map(&:to_s) - [I18n.default_locale.to_s]
   # routes requests starting with `(/:locale)/auth/*`
   r.on [*all_locales, true], "auth" do |locale|
-    rails_request.params[:locale] = locale || I18n.default_locale # if using Rails
-    r.rodauth
-    break
+    rails_request.params[:locale] = locale # for controller callbacks (if using Rails)
+    r.rodauth # route Rodauth requests
+    break # let other (/:locale)/auth/* requests through
   end
 end
 ```
+
+The static `/auth` path prefix is optional, it was just to show how it would be
+incorporated.
 
 ## Bundling translations in your Rodauth plugin
 
