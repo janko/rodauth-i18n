@@ -30,8 +30,8 @@ fr:
     contains_null_byte_message: contient un byte nul
     create_account_button: Créer un compte
     create_account_error_flash: Erreur lors de la création de votre compte
-    create_account_link_text: Create a New Account
-    create_account_notice_flash: Your account has been created
+    create_account_link_text: Créer un compte
+    create_account_notice_flash: Votre compte a été créé
     create_account_page_title: Créer un nouveau compte
     email_auth_email_recently_sent_error_flash: Un email vous a été envoyé avec un lien pour vous connecter
     email_auth_email_sent_notice_flash: Un email vous a été envoyé avec un lien pour accéder à votre compte
