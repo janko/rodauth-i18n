@@ -42,7 +42,7 @@ en:
     email_auth_request_error_flash: There was an error requesting an email link to authenticate
     email_subject_prefix: ''
     expired_jwt_access_token_message: expired JWT access token
-    global_logout_label: Logout all Logged In Sessons?
+    global_logout_label: Logout all Logged In Sessions?
     input_field_label_suffix: ''
     invalid_jwt_format_error_message: invalid JWT format or claim in Authorization header
     invalid_password_message: invalid password
