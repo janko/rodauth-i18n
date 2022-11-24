@@ -142,6 +142,7 @@ en:
     reset_password_error_flash: There was an error resetting your password
     reset_password_explanatory_text: "<p>If you have forgotten your password, you can request a password reset:</p>"
     reset_password_notice_flash: Your password has been reset
+    reset_password_notify_email_subject: Password Reset Completed
     reset_password_page_title: Reset Password
     reset_password_request_button: Request Password Reset
     reset_password_request_error_flash: There was an error requesting a password reset
