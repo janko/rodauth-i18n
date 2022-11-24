@@ -6,22 +6,10 @@ It also includes built-in translations for various languages, which you are enco
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem "rodauth-i18n", "~> 0.4"
-```
-
-And then execute:
+Add the gem to your project:
 
 ```sh
-$ bundle install
-```
-
-Or install it yourself as:
-
-```sh
-$ gem install rodauth-i18n
+$ bundle add rodauth-i18n
 ```
 
 ## Usage
