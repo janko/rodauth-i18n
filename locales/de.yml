@@ -218,7 +218,6 @@ de:
      verify_account_resend_explanatory_text: "<p>Wenn Sie die E-Mail-Adresse zur Bestätigung des Kontos nicht mehr haben, können Sie eine erneute Zusendung anfordern:</p>"
      verify_account_resend_link_text: Verifizierte Kontoinformationen erneut senden
      verify_login_change_button: Login-Änderung bestätigen
-     verify_login_change_button: Login-Änderung bestätigen
      verify_login_change_duplicate_account_error_flash: Login kann nicht geändert werden, da es bereits ein Konto mit dem neuen Login gibt
      verify_login_change_email_subject: Login-Änderung bestätigen
      verify_login_change_error_flash: Login-Änderung konnte nicht verifiziert werden
