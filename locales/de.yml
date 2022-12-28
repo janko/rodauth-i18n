@@ -53,7 +53,7 @@ de:
      jwt_refresh_invalid_token_message: Ungültiges JWT-Aktualisierungstoken
      jwt_refresh_without_access_token_message: kein JWT-Zugriffstoken während der Aktualisierung bereitgestellt
      login_button: Anmelden
-     login_confirm_label: %{login_label} bestätigen
+     login_confirm_label: "%{login_label} bestätigen"
      login_does_not_meet_requirements_message: Ungültige Anmeldung, erfüllt Anforderungen nicht
      login_error_flash: Beim Einloggen ist ein Fehler aufgetreten
      login_form_footer_links_heading: <h2 class="rodauth-login-form-footer-links-heading">Andere Optionen</h2>
@@ -104,7 +104,7 @@ de:
      otp_setup_page_title: TOTP-Authentifizierung einrichten
      password_authentication_required_error_flash: Sie müssen Ihr Passwort bestätigen, bevor Sie fortfahren
      password_changed_email_subject: Passwort geändert
-     password_confirm_label: %{password_label} bestätigen
+     password_confirm_label: "%{password_label} bestätigen"
      password_does_not_meet_requirements_message: Ungültiges Passwort, erfüllt Anforderungen nicht
      password_expiration_error_flash: Ihr Passwort ist abgelaufen und muss geändert werden
      password_in_dictionary_message: ist ein Wort in einem Wörterbuch
