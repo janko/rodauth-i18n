@@ -144,7 +144,7 @@ end
 The static `/auth` path prefix is optional, it was just to show how it would be
 incorporated.
 
-## Bundling translations in your Rodauth plugin
+## Shipping translations with your Rodauth plugin
 
 To make texts in your Rodauth plugin translatable, use the `translatable_method` macro. Macros for defining flash messages, button texts, and page titles internally call `translatable_method`, and are thus automatically translatable.
 
