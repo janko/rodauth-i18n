@@ -7,8 +7,8 @@ de:
     add_recovery_codes_heading: "<h2>Zusätzliche Wiederherstellungscodes hinzufügen</h2>"
     add_recovery_codes_page_title: Authentifizierungs-Wiederherstellungscodes
     already_an_account_with_this_login_message: bereits ein Konto mit diesem Login
-    try_to_create_unverified_account_error_flash: Das Konto, das Sie erstellen wollten, wartet derzeit auf die Überprüfung
-    try_to_login_to_unverified_account_error_flash: Das Konto, mit dem Sie versucht haben, sich anzumelden, wartet derzeit auf die Überprüfung
+    attempt_to_create_unverified_account_error_flash: Das Konto, das Sie erstellen wollten, wartet derzeit auf die Überprüfung
+    attempt_to_login_to_unverified_account_error_flash: Das Konto, mit dem Sie versucht haben, sich anzumelden, wartet derzeit auf die Überprüfung
     change_login_button: Login ändern
     change_login_error_flash: Beim Ändern Ihres Logins ist ein Fehler aufgetreten
     change_login_needs_verification_notice_flash: Es wurde eine E-Mail mit einem Link an Sie gesendet, um Ihre Login-Änderung zu bestätigen
