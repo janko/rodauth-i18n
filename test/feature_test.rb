@@ -69,7 +69,7 @@ describe "i18n feature" do
 
     visit "/login"
     assert_match "Admin Login", page.text
-    assert_match "translation missing: en.rodauth.admin.password_label", page.text
+    assert_match "Translation missing: en.rodauth.admin.password_label", page.text
   end
 
   it "returns missing translation by default" do
@@ -84,7 +84,7 @@ describe "i18n feature" do
     end
 
     visit "/"
-    assert_match "translation missing: en.rodauth.foo", page.html
+    assert_match "Translation missing: en.rodauth.foo", page.html
   end
 
   it "falls back to auth value when configured" do
@@ -119,7 +119,7 @@ describe "i18n feature" do
       visit "/"
     end
 
-    assert_equal "translation missing: en.rodauth.foo", error.message
+    assert_equal "Translation missing: en.rodauth.foo", error.message
   end
 
   it "still raises when fallback is configured" do
