@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/janko/rodauth-i18n"
   spec.license       = "MIT"
 
-  spec.required_ruby_version = ">= 2.3.0"
+  spec.required_ruby_version = ">= 2.5"
 
   spec.files         = Dir["README.md", "LICENSE.txt", "CHANGELOG.md", "lib/**/*", "locales/**/*", "*.gemspec"]
   spec.require_paths = ["lib"]
