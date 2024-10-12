@@ -92,16 +92,36 @@ en:
     otp_disable_link_text: Disable TOTP Authentication
     otp_disable_notice_flash: TOTP authentication has been disabled
     otp_disable_page_title: Disable TOTP Authentication
+    otp_disabled_email_subject: TOTP Authentication Disabled
     otp_invalid_auth_code_message: Invalid authentication code
     otp_invalid_secret_message: invalid secret
+    otp_locked_out_email_subject: TOTP Authentication Locked Out
     otp_lockout_error_flash: TOTP authentication code use locked out due to numerous failures
     otp_provisioning_uri_label: Provisioning URL
     otp_secret_label: Secret
     otp_setup_button: Setup TOTP Authentication
+    otp_setup_email_subject: TOTP Authentication Setup
     otp_setup_error_flash: Error setting up TOTP authentication
     otp_setup_link_text: Setup TOTP Authentication
     otp_setup_notice_flash: TOTP authentication is now setup
     otp_setup_page_title: Setup TOTP Authentication
+    otp_unlock_auth_deadline_passed_error_flash: Deadline past for unlocking TOTP authentication
+    otp_unlock_auth_failure_error_flash: TOTP invalid authentication
+    otp_unlock_auth_not_yet_available_error_flash: TOTP unlock attempt not yet available
+    otp_unlock_auth_success_notice_flash: TOTP successful authentication, more successful authentication needed to unlock
+    otp_unlock_button: Authenticate Using TOTP to Unlock
+    otp_unlock_consecutive_successes_label: Consecutive successful authentications
+    otp_unlock_failed_email_subject: TOTP Authentication Unlocking Failed
+    otp_unlock_form_footer: ''
+    otp_unlock_next_auth_attempt_label: Can attempt next authentication after
+    otp_unlock_next_auth_attempt_refresh_label: Page will automatically refresh when authentication is possible.
+    otp_unlock_next_auth_deadline_label: Deadline for next authentication
+    otp_unlock_not_available_page_title: Must Wait to Unlock TOTP Authentication
+    otp_unlock_not_locked_out_error_flash: TOTP authentication is not currently locked out
+    otp_unlock_page_title: Unlock TOTP Authentication
+    otp_unlock_required_consecutive_successes_label: Required consecutive successful authentications to unlock
+    otp_unlocked_email_subject: TOTP Authentication Unlocked
+    otp_unlocked_notice_flash: TOTP authentication unlocked
     password_authentication_required_error_flash: You need to confirm your password before continuing
     password_changed_email_subject: Password Changed
     password_confirm_label: Confirm %{password_label}
@@ -180,6 +200,7 @@ en:
     sms_setup_error_flash: Error setting up SMS authentication
     sms_setup_link_text: Setup Backup SMS Authentication
     sms_setup_page_title: Setup SMS Backup Number
+    strftime_format: "%F %T"
     two_factor_already_authenticated_error_flash: You have already been multifactor authenticated
     two_factor_auth_notice_flash: You have been multifactor authenticated
     two_factor_auth_page_title: Authenticate Using Additional Factor
@@ -229,11 +250,14 @@ en:
     webauthn_auth_error_flash: Error authenticating using WebAuthn
     webauthn_auth_link_text: Authenticate Using WebAuthn
     webauthn_auth_page_title: Authenticate Using WebAuthn
+    webauthn_authenticator_added_email_subject: WebAuthn Authenticator Added
+    webauthn_authenticator_removed_email_subject: WebAuthn Authenticator Removed
     webauthn_duplicate_webauthn_id_message: attempt to insert duplicate webauthn id
     webauthn_invalid_auth_param_message: invalid webauthn authentication param
     webauthn_invalid_remove_param_message: must select valid webauthn authenticator to remove
     webauthn_invalid_setup_param_message: invalid webauthn setup param
     webauthn_invalid_sign_count_message: webauthn credential has invalid sign count
+    webauthn_invalid_webauthn_id_message: no webauthn key with given id found
     webauthn_login_error_flash: There was an error authenticating via WebAuthn
     webauthn_not_setup_error_flash: This account has not been setup for WebAuthn authentication
     webauthn_remove_button: Remove WebAuthn Authenticator
