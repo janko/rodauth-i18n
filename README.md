@@ -189,10 +189,16 @@ end
 
 ## Development
 
-Run tests with Rake:
+Running tests:
 
 ```sh
 $ bundle exec rake test
+```
+
+To automatically import new translations from Rodauth:
+
+```sh
+$ rake import
 ```
 
 ## Contributing
