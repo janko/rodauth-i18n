@@ -132,7 +132,7 @@ fr:
     remember_forget_label: M'oublier
     remember_notice_flash: Votre paramètre "Se souvenir de moi" a été modifié
     remember_page_title: Modifier paramètre "Se souvenir de moi"
-    remember_remember_label: Se souvenir de moir
+    remember_remember_label: Se souvenir de moi
     require_login_error_flash: Veuillez vous identifier pour continuer
     resend_verify_account_page_title: Renvoyer email de vérification
     reset_password_button: Réinitialiser mot de passe
