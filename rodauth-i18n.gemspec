@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "rodauth-i18n"
-  spec.version       = "0.9.0"
+  spec.version       = "0.10.0"
   spec.authors       = ["Janko Marohnić"]
   spec.email         = ["janko@hey.com"]
 
