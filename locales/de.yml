@@ -126,13 +126,13 @@ de:
     recovery_codes_label: Wiederherstellungscode
     recovery_codes_link_text: Authentifizierungs-Wiederherstellungscodes anzeigen
     recovery_codes_page_title: Authentifizierungs-Wiederherstellungscodes anzeigen
-    Remember_button: Ändern Sie die Merken-Einstellung
-    Remember_disable_label: „Merken“ deaktivieren
-    Remember_error_flash: Beim Aktualisieren Ihrer Merken-Einstellungen ist ein Fehler aufgetreten
-    Remember_forget_label: Merken löschen
-    Remember_notice_flash: Ihre Merken-Einstellung wurde aktualisiert
-    Remember_page_title: Ändern Sie die Merken-Einstellung
-    Remember_remember_label: Meine Angaben merken
+    remember_button: Ändern Sie die Merken-Einstellung
+    remember_disable_label: „Merken“ deaktivieren
+    remember_error_flash: Beim Aktualisieren Ihrer Merken-Einstellungen ist ein Fehler aufgetreten
+    remember_forget_label: Merken löschen
+    remember_notice_flash: Ihre Merken-Einstellung wurde aktualisiert
+    remember_page_title: Ändern Sie die Merken-Einstellung
+    remember_remember_label: Meine Angaben merken
     require_login_error_flash: Bitte melden Sie sich an, um fortzufahren
     resend_verify_account_page_title: Bestätigungs-E-Mail erneut senden
     reset_password_button: Passwort zurücksetzen
